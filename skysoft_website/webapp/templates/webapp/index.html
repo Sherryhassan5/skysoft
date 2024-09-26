@@ -1,0 +1,138 @@
+{% extends 'webapp/base.html' %}
+{% load static %}
+
+{% block header %}
+<div class="container">
+    <div class="row">
+
+        <div class="col-12 header-left col-lg-6">
+
+            <h1 class="header-left-heading">{{header_data.header_heading | safe }}</h1>
+            <p class="header-left-p">{{header_data.header_paragraph}}</p>
+            <a href="{% url 'about' %}" class="btn header-left-btn-custom">
+                {{header_data.header_btn_title}}
+            </a>
+        </div>
+
+        <div class="col-12 header-right col-lg-6">
+            <img src="{% static 'images/header_img.png' %}" alt="" class="header-right-img">
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="logo-overflow-hidden">
+    <div class="client-logo-wrapper">
+        {% for logo in logos %}
+        <img src="{% static 'images/'%}{{logo.image_src}}" alt="Company 1" class="company-logo">
+        {% endfor %}
+        <!-- Repeat logos as necessary for the effect -->
+    </div>
+</div>
+
+
+<section class="first-section" style="background: url('{% static "images/section-bg.png" %}') no-repeat center
+    center/cover; max-width:100vw;">
+
+    <div class="container">
+        <h1 class="section-heading text-center">{{qualities_section_data.heading}}</h1>
+        <p class="section-text text-center">{{qualities_section_data.des}}</p>
+
+
+        <div class="section-card-container">
+            {% for card in qualities_section_cards %}
+            <div class="section-card">
+
+                <img src="{% static 'images/' %}{{card.card_img}}" alt="">
+
+                <h3>{{card.card_title}}</h3>
+                <p>{{card.card_des}}
+                </p>
+            </div>
+            {% endfor %}
+    </div>
+
+    <div class="container">
+        <div class="section-second-part">
+            <div class="section-second-part-left">
+                <img src="{% static 'images/section_img.png' %}" alt="">
+            </div>
+            <div class="section-second-part-right">
+                <h1>{{qualities_section_data.domain_count}}+</h1>
+                <p>{{qualities_section_data.domain_count_des}}</p>
+                <h1>
+                    <{{qualities_section_data.time_duration}}</h1>
+                        <p>{{qualities_section_data.time_duration_des}}</p>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+
+<section class="second-section">
+    <div class="container">
+        {% for big_card in big_card_data %}
+
+        <div class="big-card mb-5">
+            <div class="big-card-left">
+                <img src="{% static 'images/' %}{{big_card.card_icon}}" alt="">
+                <h2>{{big_card.small_heading}}</h2>
+                <h1>{{big_card.heading}}</h1>
+                <p>{{big_card.des}}</p>
+            </div>
+            <div class="big-card-right">
+                <img src="{% static 'images/' %}{{big_card.img}}" alt="">
+            </div>
+        </div>
+
+        {% endfor %}
+
+        <div class="big-card2">
+
+            <h1 class="big-card2-heading">
+                A platform everybody loves ♥
+            </h1>
+
+            <div class="section-card-container" id="section-card-container2">
+
+                {% for card in big_card_card %}
+
+                <div class="big-card2-card">
+
+                    <img src="{% static 'images/' %}{{card.img}}" alt="">
+
+                    <h3>{{card.heading}}</h3>
+                    <p>{{card.des}}
+                    </p>
+                    <a href="#">Learn More</a>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        <div class="big-card3 text-center">
+
+            <h1>
+                The most intuitive and joyful way
+                to create applications
+            </h1>
+
+            <div class="big-card3-btn">
+                <a href="#" class="btn big-card3-btn-blue">Get Qoutes</a>
+                <a href="#" class="btn big-card3-btn-white">Get Career</a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

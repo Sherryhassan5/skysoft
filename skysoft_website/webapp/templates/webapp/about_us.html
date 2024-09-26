@@ -1,0 +1,96 @@
+{% extends 'webapp/base.html' %}
+{% load static %}
+
+{% block header %}
+<div class="container">
+    <h1 class="header-left-heading text-center pt-5 mt-1">{{main_data.heading | safe}}</h1>
+    <p class="header-left-para">
+        {{main_data.des}}
+    </p>
+
+    <div class="about-section-card-container">
+
+        {% for card in about_header_cards %}
+
+        <div class="big-card-about-card">
+
+            <img src="{% static 'images/' %}{{card.icon}}" alt="">
+
+            <h3>{{card.heading}}</h3>
+            <p>{{card.des}}
+            </p>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="logo-overflow-hidden" id="logo-overflow-hidden-about">
+    <div class="client-logo-wrapper">
+        {% for logo in logos %}
+        <img src="{% static 'images/'%}{{logo.image_src}}" alt="Company 1" class="company-logo">
+        {% endfor %}
+    </div>
+</div>
+
+
+<section class="second-section">
+    <div class="container">
+        <div class="big-card">
+            <!-- <h1 class="header-left-heading">Latest articles about design</h1> -->
+            <div class="about-section-card-container">
+
+                {% for card in about_big_card %}
+
+                <div class="big-card2-about-card">
+
+                    <img src="{% static 'images/' %}{{card.img}}" alt="">
+                    <p>{{card.small_heading}}</p>
+                    <h3>{{card.heading}}</h3>
+                    <p>{{card.des}}
+                    </p>
+                    <a href="#">Continue Reading</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <div class="about-main">
+            <div class="about-main-left">
+                <img src="{% static 'images/about.png' %}" alt="">
+            </div>
+            <div class="about-main-right">
+                <span>{{about_banner.brief}}</span>
+                <h3>{{about_banner.heading}}</h3>
+                    <p>{{about_banner.des}}
+                    </p>
+                    <a href="{% url 'contactus' %}" class="btn big-card3-btn-blue">Got a Project? Contact Us</a>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="big-card3 text-center">
+
+            <h1>
+                The most intuitive and joyful way
+                to create applications
+            </h1>
+
+            <div class="big-card3-btn">
+                <a href="#" class="btn big-card3-btn-blue">Get Qoutes</a>
+                <a href="#" class="btn big-card3-btn-white">Get Career</a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends 'webapp/base.html' %}
+{% load static %}
+
+
+{% block header %}
+<div class="main" id="main">
+
+    
+
+
+
+    <div class="" style="position: absolute; z-index: 11;">
+
+        <h1 class="text-light big-text text-uppercase text-center" style="width: 100vw;" id="big-contact">Contact US</h1>
+
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid bg">
+    <div class="container py-5">
+
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3380.8370270071473!2d72.67776427459857!3d32.07365641960019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x392177bfd683f3d5%3A0xa8090086de867b9d!2sUniversity%20of%20Sargodha!5e0!3m2!1sen!2s!4v1687874307178!5m2!1sen!2s"
+            width="100%" height="500px" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    </div>
+
+    <div class="container py-5">
+
+        <div class="row">
+            <div class="contact-form col-12 col-md-8">
+                <h2 class="fw-bolder text-dark">Get in Touch</h2>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+
+                        <textarea class="form-control textarea rounded-0 bg-transparent text-dark"
+                            id="exampleFormControlTextarea1" rows="7" placeholder="Enter Message" name="message"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <input type="text" class="form-control textarea rounded-0 bg-transparent text-dark"
+                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your Name" name="name">
+
+                        </div>
+                        <div class="form-group col-6">
+                            <input type="email" class="form-control textarea rounded-0 bg-transparent text-dark"
+                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control textarea rounded-0 bg-transparent text-dark"
+                            id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Subject" name="subject">
+
+                    </div>
+                    <button type="submit"
+                        class="bg-primary button-book border-light text-dark py-3 fw-bold px-5 text-uppercase mt-4 ml-3">SEND</button>
+                </form>
+            </div>
+            <div class="contact-side col-12 col-md-3 offset-md-1 text-light mt-5">
+                <div class="row mb-4">
+                    <div class="col-2 p-2 fs-2"><i class="fa-solid fa-house-chimney"></i></div>
+                    <div class="col-10">
+                        <p class="fw-bolder fs-5 text-at-end">{{our_details.address}}</p>
+                        <p>{{our_details.street_address}}</p>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-2 p-2 fs-2"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <div class="col-10">
+                        <p class="fw-bolder fs-5 text-at-end">{{our_details.phone}}</p>
+                        <p>{{our_details.timings}}</p>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-2 p-2 fs-2"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="col-10">
+                        <p class="fw-bolder fs-5 text-at-end">{{our_details.email}}</p>
+                        <p>Send us your query anytime!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+{% endblock %}

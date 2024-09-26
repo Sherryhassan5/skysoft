@@ -1,0 +1,85 @@
+{% extends 'webapp/base.html' %}
+
+{% load static %}
+
+
+{% block header %}
+
+<div class="main-career" id="main-career">
+  <div class="container text-center" style="position: absolute;z-index: 11;">
+    <h1 class="big-text text-center text-light" style="width: 100vw;">Careers at Skysoft</h1>
+    <p class="header-left-p pb-0 text-center text-light" style="width: 100vw;">We're excited to meet you. Outlined below are the current roles that </p>
+    <p class="header-left-p py-0 text-center text-light" style="width: 100vw;">Skysoft is looking to find new individuals to join our team.</p>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="form-container mb-5 pb-5 mt-1">
+  <h1 class="header-left-heading text-center pb-5">Job Openings</h1>
+  <form method="GET">
+
+    <div class="input-group mb-3 p-2">
+      <span class="input-group-text border-dark" id="basic-addon1"><svg id="gfkKSpTnWO7SzDwI"
+          xmlns="http://www.w3.org/2000/svg" xlink:href="http://www.w3.org/1999/xlink" focusable="false"
+          viewBox="0 0 16 16" width="16" height="16" preserveAspectRatio="xMidYMin slice" aria-hidden="true"
+          class="styles--2gQsg styles--1l-y0 styles--3vT5q">
+          <desc aria-hidden="true">
+            <p>SVGs not supported by this browser.</p>
+          </desc>
+          <g class="graph--3t2eQ graph--3bTX1 graph--1T7TD styles--1l-y0 styles--3vT5q" size="16" fill-rule="evenodd">
+            <path
+              d="M11.953 10.635a6.444 6.444 0 0 0 1.318-3.953C13.27 3.012 10.353 0 6.682 0 3.012 0 0 3.012 0 6.682c0 3.67 3.012 6.683 6.682 6.683 1.506 0 2.918-.47 3.953-1.318l2.824 2.824c.188.188.47.282.659.282.188 0 .47-.094.658-.282a.91.91 0 0 0 0-1.318l-2.823-2.918zm-5.27.753c-2.636 0-4.8-2.07-4.8-4.706 0-2.635 2.164-4.8 4.8-4.8 2.635 0 4.8 2.165 4.8 4.8 0 2.636-2.165 4.706-4.8 4.706z">
+            </path>
+          </g>
+        </svg></span>
+      <input type="text" class="form-control border-dark" placeholder="Search Jobs..." aria-label="Username"
+        aria-describedby="basic-addon1" name="Searched_job">
+    </div>
+    <div class="d-grid">
+      <button type="submit" class="btn btn-primary mb-5">Search</button>
+    </div>
+  </form>
+  <table class="table">
+    {% if message %}
+        <p class="text_center">{{ message }}</p>
+    {% else %}
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col" class="col-lrg">Type</th>
+        <th scope="col">Location</th>
+        <th scope="col" class="col-lrg">Position/Role</th>
+        <th scope="col" class="col-lrg">Work Time</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+      {% for job in job_data %}
+      <tr>
+        <td scope="row"><a href="{% url 'job' job.id %}">{{job.title}}</a>
+          <p>{{ job.created_at|timesince }} ago</p>
+        </td>
+        <td class="col-lrg"><b>{{job.job_type}}</b></td>
+        <td>{{job.location}}</td>
+        <td class="col-lrg">{{job.role}}</td>
+        <td class="col-lrg">{{job.work_time}}</td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+    {% endif %}
+  </table>
+
+
+
+
+
+
+</div>
+
+
+{% endblock %}

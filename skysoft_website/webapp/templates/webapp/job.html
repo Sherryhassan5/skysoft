@@ -1,0 +1,45 @@
+{% extends 'webapp/base.html' %}
+{% load static %}
+
+
+{% block header %}
+
+<div class="container text-center">
+    <h1 class="big-text-n mb-5">
+        Looking For {{job_data.title}}
+    </h1>
+    <p><b>{{job_data.job_type}}</b> {{job_data.role}}</p>
+    <p>{{job_data.location}}</p>
+</div>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="form-container mb-5 pb-5">
+    <div class="description mx-5 mb-5">
+    <h1 class="big-text-n mt-0 fs-2">Description</h1>
+    <p>
+        <br>
+        {{job_data.des |safe }}
+        <br>
+    </p>
+</div>
+<div class="requirements mb-5 mx-5">
+    <h1 class="big-text-n mt-4 fs-2">Requirements</h1>
+
+    <p>
+        {{job_data.requirements |safe }}
+
+    </p>
+</div>
+<div class="d-grid mb-5 pt-2 pb-5 col-7 col-sm-11 mx-auto">
+    <a href="{% url 'job-application' job_data.id %}" class="btn btn-primary ">Apply For this Job</a>
+</div>
+</div>
+
+
+{% endblock %}

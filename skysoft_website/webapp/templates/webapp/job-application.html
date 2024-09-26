@@ -1,0 +1,73 @@
+{% extends 'webapp/base.html' %}
+{% load static %}
+
+{% block header %}
+<div class="container mt-5 pt-5">
+    <h1 class="big-text text-center">Application</h1>
+    <p class="header-left-p pb-0 text-center">Please Fill out all the information and submit the application</p>
+    <p class="header-left-p py-0 text-center">Enter your details and someone from our team will reach out to find a time
+        to connect with you.</p>
+
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="form-container">
+        <h2 class="text-center mb-5">{{job_data.title}}</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" value="{{job_data}}" name="job_id">
+            <div class="mb-3">
+                <label for="first-name" class="form-label">First Name</label>
+                <input type="text" class="form-control border-dark" id="first-name" name="first-name" required>
+            </div>
+            <div class="mb-3">
+                <label for="last-name" class="form-label">Last Name</label>
+                <input type="text" class="form-control border-dark" id="last-name" name="last-name" required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control border-dark" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" class="form-control border-dark" id="phone" name="phone" required>
+            </div>
+            <div class="mb-3">
+                <label for="company-name" class="form-label">Years of Experience</label>
+                <input type="text" class="form-control border-dark" id="company-name" name="exp" required>
+            </div>
+            <div class="mb-3">
+                <label for="region" class="form-label">Previous Company Name</label>
+                <input type="text" class="form-control border-dark" id="region" name="company" required>
+            </div>
+            <div class="mb-3">
+                <label for="region" class="form-label">Current Salary</label>
+                <input type="text" class="form-control border-dark" id="region" name="current-salary" required>
+            </div>
+            <div class="mb-3">
+                <label for="region" class="form-label">Expected Salary</label>
+                <input type="text" class="form-control border-dark" id="region" name="expect-salary" required>
+            </div>
+            <div class="mb-3">
+                <label for="region" class="form-label">Resume</label>
+                <input type="file" class="form-control border-dark" id="region" name="resume" required>
+            </div>
+            <div class="mb-3">
+                <label for="detail" class="form-label">Any Note</label>
+                <textarea class="form-control border-dark" id="detail" rows="3" name='note'></textarea>
+              </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="Check1" name="consent" required>
+                <label class="form-check-label" for="exampleCheck1">By submitting this form, you agree to receive SMS messages from Skysoft</label>
+            </div>
+            <div class="d-grid mb-5 pt-2 pb-5 col-6 mx-auto">
+                <button type="submit" class="btn btn-primary ">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
